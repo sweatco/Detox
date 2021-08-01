@@ -256,7 +256,8 @@ class AppleSimUtils {
       if (stderr.match(/Unknown command line option.*--setLocation/)) {
         throw new DetoxRuntimeError({
           message: `Failed to set the location (${lat}, ${lon}) on the device ${udid}.`
-          + '\nYour current "applesimutils" version needs to be upgraded to 0.9.3 or higher.',
+          + '\nYour current "applesimutils" version needs to be upgraded to 0.9.4 or higher.'
+          + '\nFor complete details, refer to https://github.com/wix/Detox/blob/master/docs/Introduction.iOSDevEnv.md#install-applesimutils',
           hint: 'Try running:\n  brew update && brew upgrade applesimutils',
         });
       }
@@ -302,8 +303,9 @@ class AppleSimUtils {
 
       if (stderr.match(/applesimutils: command not found/m)) {
         throw new DetoxRuntimeError({
-          message: `Detox failed to find "applesimutils" installed on the computer.\n`
-          + 'It is impossible to run tests on iOS simulators without this utility.',
+          message: `Detox failed to find "applesimutils" on the computer.`
+          + '\nIt is impossible to run tests on iOS simulators without this utility.'
+          + '\nFor complete details, refer to: https://github.com/wix/Detox/blob/master/docs/Introduction.iOSDevEnv.md#install-applesimutils',
           hint: [
             'To install "applesimutils", run:',
             '  brew tap wix/brew',
