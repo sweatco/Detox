@@ -414,6 +414,13 @@ class Matcher {
     }
     return this;
   }
+
+  or(matcher) {
+    const tempPredicate = this.predicate;
+    delete this.predicate;
+    this.predicate = { type: 'or', predicates: [tempPredicate, matcher.predicate] };
+    return this;
+  }
 }
 
 class WaitFor {

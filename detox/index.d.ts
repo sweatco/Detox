@@ -898,6 +898,11 @@ declare global {
              */
             and(by: NativeMatcher): NativeMatcher;
             /**
+             * Find an element satisfying any of the matchers
+             * @example await element(by.id('id1').or(by.id('id2'));
+             */
+            or(by: NativeMatcher): NativeMatcher;
+            /**
              * Find an element by a matcher with a parent matcher
              * @example await element(by.id('Grandson883').withAncestor(by.id('Son883')));
              */
